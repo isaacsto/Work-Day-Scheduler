@@ -14,15 +14,25 @@ $(function () {
   }
   displayToday();
 
-  function colorCoder() {
-    var currentHour= new Date().getHours();
-    var calendarHours = parseInt(document.querySelector("#working-hours"))
-    console.log(calendarHours);
-    if (calendarHours < currentHour)
-    temp.setAttribute("row time-block past")
-  }
+  var currentHour= new Date().getHours();
+
+  $(".time-block").each(function() {
+    var calendarHours = parseInt($(this).attr("id").split("-")[1]);
+
+    if (calendarHours < currentHour) {
+      $(this).addClass("past");
+      $(this).removeClass("present future");
+    }else if (calendarHours === currrentHour) {
+      $(this).addClass("present");
+      $(this).removeClass("past future");
+    }else {
+      $(this).addClass("furture");
+      $(this).removeClass("past present")
+    }
+  });
   
-  colorCoder(); 
+  
+  
 
 
   // TODO: Add a listener for click events on the save button. This code should
