@@ -14,6 +14,16 @@ $(function () {
   }
   displayToday();
 
+  function colorCoder() {
+    var currentHour= new Date().getHours();
+    var calendarHours = parseInt(document.querySelector("#working-hours"))
+    console.log(calendarHours);
+    if (calendarHours < currentHour)
+    temp.setAttribute("row time-block past")
+  }
+  
+  colorCoder(); 
+
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
