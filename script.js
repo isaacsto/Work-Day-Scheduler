@@ -22,7 +22,7 @@ $(function () {
     if (calendarHours < currentHour) {
       $(this).addClass("past");
       $(this).removeClass("present future");
-    }else if (calendarHours === currrentHour) {
+    }else if (calendarHours === currentHour) {
       $(this).addClass("present");
       $(this).removeClass("past future");
     }else {
