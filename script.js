@@ -6,6 +6,7 @@ $(function () {
   function displayToday() {
   var dayToDisplay = document.getElementById("currentDay")
   dayToDisplay.innerHTML = "";
+  // Date obj referenced in "A Smarter Way to Learn JavaScript" textbook
   var rightNow = new Date();
   var theDay = rightNow.getDay();
   var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -18,7 +19,12 @@ $(function () {
 
   $(".time-block").each(function() {
     var calendarHours = parseInt($(this).attr("id").split("-")[1]);
-
+    var children = this.children
+  //  console.log(children.parentElement)
+    children[2].addEventListener('click', function() {
+    console.log(children[1].value)
+    var scheduledEvent = localStorage.setItem(children[0].parentElement.getAttribute("id"), children[1].value)
+    })
     if (calendarHours < currentHour) {
       $(this).addClass("past");
       $(this).removeClass("present future");
@@ -29,9 +35,14 @@ $(function () {
       $(this).addClass("furture");
       $(this).removeClass("past present")
     }
-  });
-  
-  
+
+    window.addEventListener('load', scheduledEvent) {
+      scheduledEvent.preventDefault();
+    }
+   
+  }):
+
+ 
   
 
 
@@ -53,4 +64,4 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
+})
