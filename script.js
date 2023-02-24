@@ -20,11 +20,20 @@ $(function () {
   $(".time-block").each(function() {
     var calendarHours = parseInt($(this).attr("id").split("-")[1]);
     var children = this.children
-  //  console.log(children.parentElement)
+
+    //console.log(children.parentElement)
+
     children[2].addEventListener('click', function() {
     console.log(children[1].value)
     localStorage.setItem(children[0].parentElement.getAttribute("id"), children[1].value)
     })
+
+  var scheduledEvent = localStorage.getItem(children[0].parentElement.getAttribute("id"));
+  if (scheduledEvent) {
+  children[1].value = scheduledEvent;
+  }
+
+
     if (calendarHours < currentHour) {
       $(this).addClass("past");
       $(this).removeClass("present future");
@@ -36,12 +45,12 @@ $(function () {
       $(this).removeClass("past present")
     }
 
-    localStorage.getItem(children[0])
-
   });
 
-  
  
+
+  
+
  
   
 
