@@ -23,7 +23,7 @@ $(function () {
   //  console.log(children.parentElement)
     children[2].addEventListener('click', function() {
     console.log(children[1].value)
-    var scheduledEvent = localStorage.setItem(children[0].parentElement.getAttribute("id"), children[1].value)
+    localStorage.setItem(children[0].parentElement.getAttribute("id"), children[1].value)
     })
     if (calendarHours < currentHour) {
       $(this).addClass("past");
@@ -36,12 +36,12 @@ $(function () {
       $(this).removeClass("past present")
     }
 
-    window.addEventListener('load', scheduledEvent) {
-      scheduledEvent.preventDefault();
-    }
-   
-  }):
+    localStorage.getItem(children[0])
 
+  });
+
+  
+ 
  
   
 
