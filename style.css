@@ -58,6 +58,7 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
+/* only addition to styling - to give margin to bottom of page*/
 #hour-17 {
   margin-bottom: 100px;
 }
